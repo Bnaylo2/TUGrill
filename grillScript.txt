@@ -1,18 +1,18 @@
 DROP DATABASE IF EXISTS TUGrill;
 CREATE DATABASE TUGrill;
 
-DROP TABLE IF EXISTS [TABLE];
-CREATE [TABLE]
+DROP TABLE IF EXISTS [table];
+CREATE TABLE [table]
 (tableNo char(5) PRIMARY KEY,
  capacity int,
  location char(1)
 );
 
-INSERT INTO [TABLE] VALUES('1', '4', 'i');
-INSERT INTO [TABLE] VALUES('2', '2', 'i');
-INSERT INTO [TABLE] VALUES('3', '6', 'i');
-INSERT INTO [TABLE] VALUES('4', '2', '0');
-INSERT INTO [TABLE] VALUES('5', '4', '0');
+INSERT INTO [table] VALUES('1', '4', 'i');
+INSERT INTO [table] VALUES('2', '2', 'i');
+INSERT INTO [table] VALUES('3', '6', 'i');
+INSERT INTO [table] VALUES('4', '2', '0');
+INSERT INTO [table] VALUES('5', '4', '0');
 
 DROP TABLE if EXISTS reservation;
 
@@ -23,48 +23,36 @@ CREATE TABLE reservation
  [name] varchar(10),
  guestCount int,
  [location] char(1)
- PRIMARY KEY(tableNo, [date], [time]);
-);
+ PRIMARY KEY(tableNo, [date], [time])
+ );
 
 --CONNOR MAKE 3 FAKE RESERVATIONS
 
 DROP TABLE IF EXISTS [order];
 CREATE TABLE [order]
-(orderNo char(5) PRIMARY KEY,
- totalCost decimal(5.2),
- tableNo char(1),
+(orderNo varchar(5) PRIMARY KEY,
+ totalCost decimal(5,2),
+ tableNo char(1)
 );
 
 --CONNOR MAKE 6 FAKE ORDERS
 
-
-DROP TABLE IF EXISTS propertyForRent;
-CREATE TABLE propertyForRent
-(propertyNo char(5) PRIMARY KEY,
- street varchar(35),
- city varchar(10),
- postcode varchar(10),
- type varchar(10),
- rooms smallint,
- rent int,
- ownerNo char(5) not null,
- staffNo char(5),
- branchNo char(5)
+DROP TABLE IF EXISTS dish;
+CREATE TABLE dish
+(dishNo char(1) PRIMARY KEY,
+ orderNo varchar(5),
+ modification varchar(50),
+ itemNo char(1)
 );
 
-INSERT INTO propertyForRent VALUES('PA14','16 Holhead','Aberdeen','AB7 5SU','House',6,650,'CO46','SA9','B007');
-INSERT INTO propertyForRent VALUES('PL94','6 Argyll St','London','NW2','Flat',4,400,'CO87','SL41','B005' );
-INSERT INTO propertyForRent VALUES('PG4','6 Lawrence St','Glasgow','G11 9QX','Flat',3,350,'CO40', NULL, 'B003');
-INSERT INTO propertyForRent VALUES('PG36','2 Manor Rd','Glasgow','G32 4QX','Flat',3,375,'CO93','SG37','B003' );
-INSERT INTO propertyForRent VALUES('PG21','18 Dale Rd','Glasgow','G12','House',5,600,'CO87','SG37','B003');
-INSERT INTO propertyForRent VALUES('PG16','5 Novar Dr','Glasgow','G12 9AX','Flat',4,450,'CO93','SG14','B003' );
+--CONNOR MAKE 8 FAKE DISHES
 
-DROP TABLE IF EXISTS client;
-CREATE TABLE client
-(clientNo char(5) PRIMARY KEY,
- fName varchar(10),
- lName varchar(10),
- telNo char(15),
+DROP TABLE IF EXISTS menu_item;
+CREATE TABLE menu_item
+(itemNo char(1) PRIMARY KEY,
+ itemName varchar(50),
+ price decimal(5,2),
+ ingredientNo char(15),
  prefType varchar(10),
  maxRent int,
  email varchar(50)

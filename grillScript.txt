@@ -48,10 +48,10 @@ CREATE TABLE [order]
  totalCost decimal(5,2),
 );
 
-INSERT INTO [order] VALUES('1', '23.00');
-INSERT INTO [order] VALUES('2', '10.00');
-INSERT INTO [order] VALUES('3', '27.00');
-INSERT INTO [order] VALUES('4', '17.00');
+INSERT INTO [order] VALUES('1', '12.99');
+INSERT INTO [order] VALUES('2', '17.98');
+INSERT INTO [order] VALUES('3', '12.99');
+INSERT INTO [order] VALUES('4', '7.99');
 
 DROP TABLE IF EXISTS orderXdish;
 CREATE TABLE orderXdish

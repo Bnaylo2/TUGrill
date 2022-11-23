@@ -3,7 +3,7 @@ CREATE DATABASE TUGrill;
 
 DROP TABLE IF EXISTS [table];
 CREATE TABLE [table]
-(tableNo char(5) PRIMARY KEY,
+(tableNo char(1) PRIMARY KEY,
  capacity int,
  location char(1)
 );
@@ -11,13 +11,13 @@ CREATE TABLE [table]
 INSERT INTO [table] VALUES('1', '4', 'i');
 INSERT INTO [table] VALUES('2', '2', 'i');
 INSERT INTO [table] VALUES('3', '6', 'i');
-INSERT INTO [table] VALUES('4', '2', '0');
-INSERT INTO [table] VALUES('5', '4', '0');
+INSERT INTO [table] VALUES('4', '2', 'o');
+INSERT INTO [table] VALUES('5', '4', 'o');
 
 DROP TABLE if EXISTS reservation;
 
 CREATE TABLE reservation
-(tableNo char(5),
+(tableNo char(1),
  [date] date,
  [time] time,
  [name] varchar(10),
@@ -26,65 +26,138 @@ CREATE TABLE reservation
  PRIMARY KEY(tableNo, [date], [time])
  );
 
---CONNOR MAKE 3 FAKE RESERVATIONS
+INSERT INTO reservation VALUES('4', '2022-11-28', '17:30:00', 'Johnny', '2', 'i');
+INSERT INTO reservation VALUES('2', '2022-11-29', '19:30:00', 'Melisa', '1', 'i');
+INSERT INTO reservation VALUES('1', '2022-11-30', '20:00:00', 'Lebron', '3', 'o');
+
+DROP TABLE IF EXISTS tableXorder;
+CREATE TABLE tableXorder
+(tableNo char(1),
+ orderNo varchar(5),
+ PRIMARY KEY(tableNo, orderNo)
+ );
+ 
+INSERT INTO tableXorder VALUES('1', '3');
+INSERT INTO tableXorder VALUES('2', '1');
+INSERT INTO tableXorder VALUES('2', '2');
+INSERT INTO tableXorder VALUES('3', '4');
 
 DROP TABLE IF EXISTS [order];
 CREATE TABLE [order]
 (orderNo varchar(5) PRIMARY KEY,
  totalCost decimal(5,2),
- tableNo char(1)
 );
 
---CONNOR MAKE 6 FAKE ORDERS
+INSERT INTO [order] VALUES('1', '23.00');
+INSERT INTO [order] VALUES('2', '10.00');
+INSERT INTO [order] VALUES('3', '27.00');
+INSERT INTO [order] VALUES('4', '17.00');
+
+DROP TABLE IF EXISTS orderXdish;
+CREATE TABLE orderXdish
+(orderNo varchar(5),
+ dishNo char(1),
+ PRIMARY KEY(orderNo, dishNo)
+ );
+ 
+INSERT INTO orderXdish VALUES('1', '2');
+INSERT INTO orderXdish VALUES('2', '1');
+INSERT INTO orderXdish VALUES('2', '5');
+INSERT INTO orderXdish VALUES('3', '4');
+INSERT INTO orderXdish VALUES('4', '3');
 
 DROP TABLE IF EXISTS dish;
 CREATE TABLE dish
 (dishNo char(1) PRIMARY KEY,
- orderNo varchar(5),
  modification varchar(50),
  itemNo char(1)
 );
 
---CONNOR MAKE 8 FAKE DISHES
+INSERT INTO dish VALUES('1', 'NO MAYO', '1');
+INSERT INTO dish VALUES('2', '', '1');
+INSERT INTO dish VALUES('3', '', '3');
+INSERT INTO dish VALUES('4', 'NO PICKLES', '2');
+INSERT INTO dish VALUES('5', '', '3');
+
+DROP TABLE IF EXISTS itemXdish;
+CREATE TABLE itemXdish
+(itemNo char(1),
+ dishNo char(1),
+ PRIMARY KEY(itemNo, dishNo)
+);
+
+INSERT INTO itemXdish VALUES('1', '1');
+INSERT INTO itemXdish VALUES('1', '2');
+INSERT INTO itemXdish VALUES('3', '3');
+INSERT INTO itemXdish VALUES('2', '4');
+INSERT INTO itemXdish VALUES('3', '5');
 
 DROP TABLE IF EXISTS menu_item;
 CREATE TABLE menu_item
 (itemNo char(1) PRIMARY KEY,
  itemName varchar(50),
  price decimal(5,2),
- ingredientNo char(15),
- prefType varchar(10),
- maxRent int,
- email varchar(50)
 );
 
-INSERT INTO client VALUES('CR76','John','Kay','0171-774-5632','Flat',425, 'john.kay@gmail.com');
-INSERT INTO client VALUES('CR56','Aline','Steward','0141-848-1825','Flat',350, 'astewart@hotmail.com');
-INSERT INTO client VALUES('CR74','Mike','Ritchie','01475-943-1728','House',750, 'mritchie@yahoo.co.uk');
-INSERT INTO client VALUES('CR62','Mary','Tregear','01224-196720','Flat',600, 'maryt@hotmail.co.uk');
+INSERT INTO menu_item VALUES('1', 'Turkey Club', 9.99);
+INSERT INTO menu_item VALUES('2', 'Cheese Burger', 12.99);
+INSERT INTO menu_item VALUES('3', 'Chicken Tenders', 7.99);
 
-DROP TABLE IF EXISTS viewing;
-CREATE TABLE  viewing
-(clientNo char(5) not null,
- propertyNo char(5) not null,
- viewDate date,
- comment varchar(15)
-);
-INSERT INTO viewing VALUES('CR56','PA14','2015-05-24','too small');
-INSERT INTO viewing VALUES('CR76','PG4','2015-04-20','too remote');
-INSERT INTO viewing VALUES('CR56','PG4','2015-05-26','');
-INSERT INTO viewing VALUES('CR62','PA14','2015-05-14','no dining room');
-INSERT INTO viewing VALUES('CR56','PG36','2015-04-28','');
-
-DROP TABLE IF EXISTS registration;
-CREATE TABLE registration
-(clientNo char(5) not null,
- branchNo char(5) not null,
- staffNo char(5) not null,
- dateJoined date
+DROP TABLE IF EXISTS itemXingredient;
+CREATE TABLE itemXingredient
+(itemNo char(1),
+ ingredientNo char(2),
+ PRIMARY KEY(itemNo, ingredientNo)
 );
 
-INSERT INTO registration VALUES('CR76','B005','SL41','2015-01-13');
-INSERT INTO registration VALUES('CR56','B003','SG37','2014-04-13');
-INSERT INTO registration VALUES('CR74','B003','SG37','2013-11-16');
-INSERT INTO registration VALUES('CR62','B007','SA9','2014-03-07');
+INSERT INTO itemXingredient VALUES('1', '01');
+INSERT INTO itemXingredient VALUES('1', '02');
+INSERT INTO itemXingredient VALUES('1', '03');
+INSERT INTO itemXingredient VALUES('1', '04');
+INSERT INTO itemXingredient VALUES('1', '05');
+INSERT INTO itemXingredient VALUES('2', '02');
+INSERT INTO itemXingredient VALUES('2', '03');
+INSERT INTO itemXingredient VALUES('2', '04');
+INSERT INTO itemXingredient VALUES('2', '06');
+INSERT INTO itemXingredient VALUES('2', '07');
+INSERT INTO itemXingredient VALUES('2', '08');
+INSERT INTO itemXingredient VALUES('2', '09');
+INSERT INTO itemXingredient VALUES('2', '10');
+INSERT INTO itemXingredient VALUES('2', '11');
+INSERT INTO itemXingredient VALUES('3', '12');
+INSERT INTO itemXingredient VALUES('3', '13');
+INSERT INTO itemXingredient VALUES('3', '09');
+
+DROP TABLE IF EXISTS ingredient;
+CREATE TABLE  ingredient
+(ingredientNo char(2) PRIMARY KEY,
+ quantity int,
+ ingredientName varchar(50)
+);
+
+INSERT INTO ingredient VALUES('01', '6', 'Turkey');
+INSERT INTO ingredient VALUES('02', '14', 'Lettuce');
+INSERT INTO ingredient VALUES('03', '3', 'Tomato');
+INSERT INTO ingredient VALUES('04', '28', 'Mayo');
+INSERT INTO ingredient VALUES('05', '28', 'Bread');
+INSERT INTO ingredient VALUES('06', '19', 'Bun');
+INSERT INTO ingredient VALUES('07', '9', 'Onion');
+INSERT INTO ingredient VALUES('08', '4', 'Patty');
+INSERT INTO ingredient VALUES('09', '18', 'Ketchup');
+INSERT INTO ingredient VALUES('10', '89', 'Mustard');
+INSERT INTO ingredient VALUES('11', '74', 'Pickles');
+INSERT INTO ingredient VALUES('12', '27', 'Chicken');
+INSERT INTO ingredient VALUES('13', '83', 'Breading');
+
+DROP TABLE IF EXISTS payment;
+CREATE TABLE payment
+(paymentNo char(5) PRIMARY KEY,
+ orderNo varchar(5),
+ cardNo char(16),
+ tip decimal(5,2),
+ isPaid char(1)
+);
+
+INSERT INTO payment VALUES('00001', '3', '0000111122223333', '7.43', 'y');
+INSERT INTO payment VALUES('00002', '4', '1111222233334444', '2.43', 'n');
+INSERT INTO payment VALUES('02284', '8', '8367992573984927', '0.00', 'y');

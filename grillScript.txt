@@ -55,7 +55,9 @@ CREATE TABLE dish
 (dishNo varchar(5) PRIMARY KEY,
  modification varchar(50),
  itemNo varchar(5),
- FOREIGN KEY(itemNo) REFERENCES menu_item(itemNo)
+ orderNo varchar(5),
+ FOREIGN KEY(itemNo) REFERENCES menu_item(itemNo),
+ FOREIGN KEY(orderNo) REFERENCES [order](orderNo)
 );
 
 INSERT INTO dish VALUES('1', 'NO MAYO', '1');

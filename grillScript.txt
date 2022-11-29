@@ -71,15 +71,15 @@ CREATE TABLE  ingredient
  ingredientName varchar(50)
 );
 
-INSERT INTO ingredient VALUES('01', 6, 'Turkey');
-INSERT INTO ingredient VALUES('02', 14, 'Lettuce');
-INSERT INTO ingredient VALUES('03', 3, 'Tomato');
-INSERT INTO ingredient VALUES('04', 28, 'Mayo');
-INSERT INTO ingredient VALUES('05', 28, 'Bread');
-INSERT INTO ingredient VALUES('06', 19, 'Bun');
-INSERT INTO ingredient VALUES('07', 9, 'Onion');
-INSERT INTO ingredient VALUES('08', 4, 'Patty');
-INSERT INTO ingredient VALUES('09', 18, 'Ketchup');
+INSERT INTO ingredient VALUES('1', 6, 'Turkey');
+INSERT INTO ingredient VALUES('2', 14, 'Lettuce');
+INSERT INTO ingredient VALUES('3', 3, 'Tomato');
+INSERT INTO ingredient VALUES('4', 28, 'Mayo');
+INSERT INTO ingredient VALUES('5', 28, 'Bread');
+INSERT INTO ingredient VALUES('6', 19, 'Bun');
+INSERT INTO ingredient VALUES('7', 9, 'Onion');
+INSERT INTO ingredient VALUES('8', 4, 'Patty');
+INSERT INTO ingredient VALUES('9', 18, 'Ketchup');
 INSERT INTO ingredient VALUES('10', 89, 'Mustard');
 INSERT INTO ingredient VALUES('11', 74, 'Pickles');
 INSERT INTO ingredient VALUES('12', 27, 'Chicken');

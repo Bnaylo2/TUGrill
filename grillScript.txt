@@ -60,11 +60,11 @@ CREATE TABLE dish
  FOREIGN KEY(orderNo) REFERENCES [order](orderNo)
 );
 
-INSERT INTO dish VALUES('1', 'NO MAYO', '1');
-INSERT INTO dish VALUES('2', '', '1');
-INSERT INTO dish VALUES('3', '', '3');
-INSERT INTO dish VALUES('4', 'NO PICKLES', '2');
-INSERT INTO dish VALUES('5', '', '3');
+INSERT INTO dish VALUES('1', 'NO MAYO', '1', '1');
+INSERT INTO dish VALUES('2', '', '1', '2');
+INSERT INTO dish VALUES('3', '', '3', '2');
+INSERT INTO dish VALUES('4', 'NO PICKLES', '2', '3');
+INSERT INTO dish VALUES('5', '', '3', '1');
 
 DROP TABLE IF EXISTS ingredient;
 CREATE TABLE  ingredient
@@ -125,6 +125,6 @@ CREATE TABLE payment
  FOREIGN KEY(orderNo) REFERENCES [order](orderNo),
 );
 
-INSERT INTO payment VALUES('1', '3', '0000111122223333', 7.43, 20.32, 'y');
+INSERT INTO payment VALUES('1', '3', '0000111122223333', 7.43, 17.32, 'y');
 INSERT INTO payment VALUES('2', '2', '1111222233334444', 2.43, 15.32, 'n');
 INSERT INTO payment VALUES('3', '1', '8367992573984927', 0.00, 9.99, 'y');

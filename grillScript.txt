@@ -61,10 +61,10 @@ CREATE TABLE dish
 );
 
 INSERT INTO dish VALUES('1', 'NO MAYO', '1', '1');
-INSERT INTO dish VALUES('2', '', '1', '2');
-INSERT INTO dish VALUES('3', '', '3', '2');
+INSERT INTO dish VALUES('2', null, '1', '2');
+INSERT INTO dish VALUES('3', null, '3', '2');
 INSERT INTO dish VALUES('4', 'NO PICKLES', '2', '3');
-INSERT INTO dish VALUES('5', '', '3', '1');
+INSERT INTO dish VALUES('5', null, '3', '1');
 
 DROP TABLE IF EXISTS ingredient;
 CREATE TABLE  ingredient

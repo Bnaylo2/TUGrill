@@ -1,0 +1,4 @@
+update ingredient
+set quantity = quantity - 1
+where ingredientNo in (select ingredientNo from itemXingredient
+                      where itemNo = '2');

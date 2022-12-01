@@ -16,7 +16,7 @@ CREATE TABLE reservation
  [time] time,
  [name] varchar(50),
  guestCount int,
- [location] char(1)
+ [location] char(1),
  PRIMARY KEY(tableNo, [date], [time]),
  FOREIGN KEY(tableNo) REFERENCES [table](tableNo)
  );

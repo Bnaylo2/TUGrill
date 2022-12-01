@@ -1,0 +1,4 @@
+SELECT itemName, modification FROM dish, menu_item
+where dish.orderNo = (
+  select orderNo from [order]
+  where tableNo = '3' AND dish.itemno = menu_item.itemno);

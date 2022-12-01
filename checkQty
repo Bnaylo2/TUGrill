@@ -1,0 +1,3 @@
+SELECT ingredientName, quantity
+from ingredient
+where ingredientName = 'Lettuce';

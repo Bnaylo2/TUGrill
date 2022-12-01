@@ -60,6 +60,7 @@ INSERT INTO dish VALUES('2', null, '1', '2');
 INSERT INTO dish VALUES('3', null, '3', '2');
 INSERT INTO dish VALUES('4', 'NO PICKLES', '2', '3');
 INSERT INTO dish VALUES('5', null, '3', '1');
+INSERT INTO dish VALUES('6', null, '2', '4');
 
 CREATE TABLE  ingredient
 (ingredientNo varchar(5) PRIMARY KEY,

@@ -1,0 +1,2 @@
+SELECT ingredient.ingredientName FROM menu_item, ingredient, itemXingredient
+WHERE menu_item.itemNo = itemXingredient.itemNo AND ingredient.ingredientNo = itemXingredient.ingredientNo AND menu_item.itemName = 'Turkey Club';

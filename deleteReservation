@@ -1,0 +1,2 @@
+DELETE from reservation
+where tableNo = '2';

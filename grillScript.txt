@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS [table];
 CREATE TABLE [table]
 (tableNo varchar(5) PRIMARY KEY,
  capacity int,
@@ -11,7 +10,6 @@ INSERT INTO [table] VALUES('3', 6, 'i');
 INSERT INTO [table] VALUES('4', 2, 'o');
 INSERT INTO [table] VALUES('5', 4, 'o');
 
-DROP TABLE if EXISTS reservation;
 CREATE TABLE reservation
 (tableNo varchar(5),
  [date] date,
@@ -27,7 +25,6 @@ INSERT INTO reservation VALUES('4', '2022-11-28', '17:30:00', 'Johnny', 2, 'i');
 INSERT INTO reservation VALUES('2', '2022-11-29', '19:30:00', 'Melisa', 1, 'i');
 INSERT INTO reservation VALUES('1', '2022-11-30', '20:00:00', 'Lebron', 3, 'o');
 
-DROP TABLE IF EXISTS [order];
 CREATE TABLE [order]
 (orderNo varchar(5) PRIMARY KEY,
  tableNo varchar(5),
@@ -39,7 +36,6 @@ INSERT INTO [order] VALUES('2','2');
 INSERT INTO [order] VALUES('3','2');
 INSERT INTO [order] VALUES('4','3');
 
-DROP TABLE IF EXISTS menu_item;
 CREATE TABLE menu_item
 (itemNo varchar(5) PRIMARY KEY,
  itemName varchar(50),
@@ -50,7 +46,6 @@ INSERT INTO menu_item VALUES('1', 'Turkey Club', 9.99);
 INSERT INTO menu_item VALUES('2', 'Cheese Burger', 12.99);
 INSERT INTO menu_item VALUES('3', 'Chicken Tenders', 7.99);
 
-DROP TABLE IF EXISTS dish;
 CREATE TABLE dish
 (dishNo varchar(5) PRIMARY KEY,
  modification varchar(50),
@@ -66,7 +61,6 @@ INSERT INTO dish VALUES('3', null, '3', '2');
 INSERT INTO dish VALUES('4', 'NO PICKLES', '2', '3');
 INSERT INTO dish VALUES('5', null, '3', '1');
 
-DROP TABLE IF EXISTS ingredient;
 CREATE TABLE  ingredient
 (ingredientNo varchar(5) PRIMARY KEY,
  quantity int,
@@ -87,7 +81,6 @@ INSERT INTO ingredient VALUES('11', 74, 'Pickles');
 INSERT INTO ingredient VALUES('12', 27, 'Chicken');
 INSERT INTO ingredient VALUES('13', 83, 'Breading');
 
-DROP TABLE IF EXISTS itemXingredient;
 CREATE TABLE itemXingredient
 (itemNo varchar(5),
  ingredientNo varchar(5),
@@ -114,7 +107,6 @@ INSERT INTO itemXingredient VALUES('3', '12');
 INSERT INTO itemXingredient VALUES('3', '13');
 INSERT INTO itemXingredient VALUES('3', '9');
 
-DROP TABLE IF EXISTS payment;
 CREATE TABLE payment
 (paymentNo varchar(5) PRIMARY KEY,
  orderNo varchar(5),

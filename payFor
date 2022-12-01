@@ -1,0 +1,3 @@
+update payment
+set isPaid = 'y'
+where orderNo = '2';

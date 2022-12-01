@@ -1,0 +1,2 @@
+select * from reservation
+where name = 'Lebron' AND date = '2022-11-30' AND time = '20:00:00';

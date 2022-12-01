@@ -1,0 +1,4 @@
+SELECT SUM(price) from menu_item
+where itemNo in (SELECT itemNo from dish
+                 where dishNo in (SELECT dishNo FRom dish
+                                  where orderNo = '1'));

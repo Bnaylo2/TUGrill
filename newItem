@@ -1,0 +1,5 @@
+INSERT INTO menu_item VALUES('4', 'Veggie Sandwich', '6.99');
+INSERT INTO itemXingredient VALUES('4', '5');
+INSERT INTO itemXingredient VALUES('4', '2');
+INSERT INTO itemXingredient VALUES('4', '3');
+INSERT INTO itemXingredient VALUES('4', '4');
